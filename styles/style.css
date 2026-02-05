@@ -1,9 +1,17 @@
-* {
+*{
   font-family: "Poppins", sans-serif;
 
 }
 
-.Bangla-font {
+.bangla-font{
   font-family: "Hind Siliguri", sans-serif;
 
 }
+
+
+
+/* <a href="" class="flex items-center">
+      <span class="font-bold text-lg">English</span>
+      <img src="./assets/logo.png" alt="">
+      <span class="bangla-font text-lg font-semibold" >জানালা</span>
+    </a> */
