@@ -8,6 +8,10 @@
 
 }
 
+.active{
+  background: #422AD5;
+  color: white;
+}
 
 
 /* <a href="" class="flex items-center">
