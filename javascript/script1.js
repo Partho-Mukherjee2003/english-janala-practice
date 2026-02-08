@@ -26,8 +26,51 @@
         });
     }
 
+    const loadmodal = async (id) => {
+      const modalurl = `https://openapi.programming-hero.com/api/word/${id}`
+      // console.log(modalurl)
+      const res = await fetch(modalurl);
+      const data = await res.json();
+      displaymodal(data.data);
 
 
+    }
+
+    const displaymodal = (modal) =>{
+      console.log(modal);
+
+        const modalDiv = document.getElementById("showModal");
+        modalDiv.innerHTML = `
+      <div class="space-y-3">
+        <h1 class="font-bold text-xl">Eager (<i class="fa-solid fa-microphone"></i>:ইগার)</h1>
+        <div>
+          <p class="font-bold">Meaning</p>
+          <p>${modal.meaning}</p>
+        </div>
+        <div>
+          <p class="font-bold">Example</p>
+          <p>${modal.sentence}</p>
+        </div>
+        <div>
+            <p class="font-bold">সমার্থক শব্দ গুলো</p>
+            
+            <span>hi</span>
+            <span>hi</span>
+            <span>hi</span>
+            <span>hi</span>
+        </div>
+
+
+
+
+
+        <div>
+
+        </div>
+
+      </div>`;
+        document.getElementById("my_modal_5").showModal();
+      }
 
 
     const displayLessonsApi = (lessons) => {
@@ -67,13 +110,13 @@
       const wordCard = document.createElement('div');
       wordCard.innerHTML = `
 
-        <div class="card  bg-base-100 card-sm shadow-sm">
+        <div class="card h-[200px] bg-base-100 card-sm shadow-sm">
   <div class="card-body text-center">
     <h2 class="font-bold text-xl text-center">${word.word ? word.word : "শব্দ পাওয়া যায় নি"}</h2>
     <p>  meaning / pronunciation </p>
-    <p class="text-xl font-bold">  "${word.meaning ? word.meaning : "Meaning Not Available"} / ${word.pronunciation ? word.pronunciation : "Pronunciation Not Available"}"  </p>
+    <p class="text-lg text-gray-500 font-bold">  "${word.meaning ? word.meaning : "Meaning Not Available"} / ${word.pronunciation ? word.pronunciation : "Pronunciation Not Available"}"  </p>
     <div class="justify-between flex">
-      <button class="btn"><i class="fa-solid fa-circle-info"></i></button>
+      <button onclick="loadmodal(${word.id})" class="btn"><i class="fa-solid fa-circle-info"></i></button>
       <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
     </div>
   </div>
