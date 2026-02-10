@@ -1,3 +1,11 @@
+//Speach funtionality
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
+
 // synonyms functionality
 const showSynonyms = (array) => {
   const synonyms = array.map((el) => `<span class="btn">${el}</span>`);
@@ -131,7 +139,7 @@ const displayWordsCard = (words) => {
     <p class="text-lg text-gray-500 font-bold">  "${word.meaning ? word.meaning : "Meaning Not Available"} / ${word.pronunciation ? word.pronunciation : "Pronunciation Not Available"}"  </p>
     <div class="justify-between flex">
       <button onclick="loadmodal(${word.id})" class="btn"><i class="fa-solid fa-circle-info"></i></button>
-      <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
+      <button onclick="pronounceWord('${word.word}')" class="btn"><i class="fa-solid fa-volume-high"></i></button>
     </div>
   </div>
 </div>
